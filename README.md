@@ -105,7 +105,7 @@ To use this plugin in your themes copy the files to for example `{wordpress}/wp-
 Support
 -------
 
-We are always happy to help you. If you have any question regarding this code. [Send us a message](http://www.jamedowebsites.nl/contact/) or contact us on twitter [@JamedoWebsites](http://twitter.com/JamedoWebsites).
+Please add an issues in the issue tracker
 
 Changelog
 ---------
