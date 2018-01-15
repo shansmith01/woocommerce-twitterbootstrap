@@ -1,7 +1,9 @@
-WooCommerce Twitter's Bootstrap Plugin
+WooCommerce Bootstrap 4 Plugin
 ======================================
 
-This plugin wraps your Woocommerce views in the Twitter's Bootstrap Grid. Makes your views full responsive. No changes to your theme or other plugins needed.
+This plugin wraps your Woocommerce views in the Bootstrap Grid. Makes your views full responsive. No changes to your theme or other plugins needed.
+
+This plugin has been updated to use bootstrap 4 with woocomerce.
 
 Installation
 ------------
@@ -12,7 +14,7 @@ Installation
 Twitter's Bootstrap version
 ---------------------------
 Select you Twitter's Boostrap version in the settings Panel.
-You could choose between version 2 and 3.
+You could choose between version 3 and 4.
 
 Number of columns (Shop page)
 -----------------------------
@@ -44,27 +46,6 @@ This will be result in the grids shown below:
 * 
 */
 
-/* the grid display Twitter's Bootstrap 2.x*/
-/*
-|  	columns		| mobile / tablet| desktop	|per page |
-------------------------------------------------------|
-|		1		|	1		     |	1		| 	10	  |
-|-----------------------------------------------------|
-|		2		|	1		     |	2	    |	10	  |
-|-----------------------------------------------------|
-|		3		|	1			 |	3		|	12    |
-|-----------------------------------------------------|
-|		4		|	1		     |	4	    |   12	  |
-|-----------------------------------------------------|
-|		5		|	n/a		     |	n/a		|	n/a	  |	
-|-----------------------------------------------------|
-|		6		|	2		     |	4		|	12	  |
-|-----------------------------------------------------|
-|		>=6		|	n/a		     |	n/a		|	n/a	  |	
-|-----------------------------------------------------|
-* 
-* 
-*/
 
 </pre>
 
@@ -90,9 +71,9 @@ Also see: [Centering product elements on Shop page](http://www.primathemes.com/d
 
 Requirements
 ------------
-* [Wordpress](http://wordpress.org/download/) tested with >= 3.6
-* [Twitter's Bootstrap](http://getboostrap.com/) >= 3.0.0 (Twitter's Bootstrap 2 tested with v2.3.2.)
-* [WooCommerce](http://wordpress.org/plugins/woocommerce/) tested with >= 2.0.13
+* [Wordpress](http://wordpress.org/download/) tested with >= 4.9.1
+* [Twitter's Bootstrap](http://getboostrap.com/) >= 4.0beta3,  >= 3.0.0 
+* [WooCommerce](http://wordpress.org/plugins/woocommerce/) tested with >= 3.2.6
 
 Theme integration
 -----------------
@@ -128,6 +109,13 @@ We are always happy to help you. If you have any question regarding this code. [
 
 Changelog
 ---------
+
+2.0
+
+* Forked from https://github.com/bassjobsen/woocommerce-twitterbootstrap
+* Add in card markup for product archive pages
+* Drop support for bootstrap 2
+* Add support for bootstrap 4
 
 1.1
 
