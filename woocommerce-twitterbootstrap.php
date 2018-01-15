@@ -605,7 +605,7 @@ $doc = new DOMDocument();
 $doc->loadHTML('<?xml encoding="'.DB_CHARSET.'">' . $thumbnail );
 $images = $doc->getElementsByTagName('img');
 foreach ($images as $image) {
-$image->setAttribute('class',$image->getAttribute('class').' img-responsive');
+$image->setAttribute('class',$image->getAttribute('class').' img-responsive card-img-top');
 $image->removeAttribute('height');
 $image->removeAttribute('width');
 //see: http://stackoverflow.com/questions/6321481/printing-out-html-content-from-domelement-using-nodevalue

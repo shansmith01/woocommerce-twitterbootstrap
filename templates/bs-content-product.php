@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 	
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
-	<div class="product"><a href="<?php the_permalink(); ?>">
+	<div class="product card"><a href="<?php the_permalink(); ?>">
 
 		<?php
 			/**
@@ -27,17 +27,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 			 
 			do_action( 'bs_before_shop_loop_item_title' ); 
 		?>
+		<div class="card-body">
 
-		<h3><?php the_title(); ?></h3>
+			<h3 class="card-title"><?php the_title(); ?></h3>
 
-		<?php
-			/**
-			 * woocommerce_after_shop_loop_item_title hook
-			 *
-			 * @hooked woocommerce_template_loop_price - 10
-			 */
-			do_action( 'woocommerce_after_shop_loop_item_title' );
-		?>
+			<?php
+				/**
+				 * woocommerce_after_shop_loop_item_title hook
+				 *
+				 * @hooked woocommerce_template_loop_price - 10
+				 */
+				do_action( 'woocommerce_after_shop_loop_item_title' );
+			?>
+		</div>
 
 	</a>
 
