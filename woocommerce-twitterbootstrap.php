@@ -225,7 +225,7 @@ function showform()
 	<?php
 	$tbversion = (get_option('tbversion'))?get_option('tbversion'):3;
 	?>
-	<input type="radio" value="2" name="tbversion" <?php echo ($tbversion==2)?' checked="checked"':''?>>Twitter's Bootstrap 2.x (2.3.2)<br>
+	<input type="radio" value="4" name="tbversion" <?php echo ($tbversion==4)?' checked="checked"':''?>>Twitter's Bootstrap 4.x <br>
 	<input type="radio" value="3" name="tbversion"<?php echo ($tbversion==3)?' checked="checked"':''?>>Twitter's Bootstrap 3.x<br>
 </td> 
 </tr> 
@@ -365,37 +365,17 @@ function get_grid_classes($woocommerce_loop)
 * 
 */
 
-/* the grid display Twitter's Bootstrap 2.x*/
-/*
-|  	columns		| mobile / tablet| desktop	|per page |
-------------------------------------------------------|
-|		1		|	1		     |	1		| 	10	  |
-|-----------------------------------------------------|
-|		2		|	1		     |	2	    |	10	  |
-|-----------------------------------------------------|
-|		3		|	1			 |	3		|	9     |
-|-----------------------------------------------------|
-|		4		|	1		     |	4	    |   12	  |
-|-----------------------------------------------------|
-|		5		|	n/a		     |	n/a		|	n/a	  |	
-|-----------------------------------------------------|
-|		6		|	2		     |	4		|	12	  |
-|-----------------------------------------------------|
-|		>=6		|	n/a		     |	n/a		|	n/a	  |	
-|-----------------------------------------------------|
-* 
-* 
-*/
-if(get_option( 'tbversion', 3 )==2)
+
+if(get_option( 'tbversion', 3 )==4)
 {
 	switch($woocommerce_loop['columns'])
 	{
-	case 6: $classes = 'span2'; break;
-	case 4: $classes = 'span3'; break;
-	case 3: $classes = 'span4'; break;
-	case 31: $classes = 'span4'; break;
-	case 2: $classes = 'span6'; break;
-	default: $classes = 'span12';
+	case 6: $classes = 'col-xs-6 col-sm-3 col-md-2'; break;
+	case 4: $classes = 'col-xs-12 col-sm-6 col-md-3'; break;
+	case 3: $classes = 'col-xs-12 col-sm-12 col-md-4'; break;
+	case 31: $classes = 'col-xs-12 col-sm-6 col-md-4'; break;
+	case 2: $classes = 'col-xs-12 col-sm-6 col-md-6'; break;
+	default: $classes = 'col-xs-12 col-sm-12 col-md-12';
 	}
 }	
 else
@@ -425,6 +405,42 @@ function bs_product_loop(&$woocommerce_loop,$classes,$template='bs-content-produ
 	
 
 	include($template);
+
+
+	if(get_option( 'tbversion', 3 )==4){ // only for version 4+
+				
+		if($woocommerce_loop['columns'] == 6){ 
+				
+			if(0 == ($woocommerce_loop['loop'] % 6)){?><div class="clearfix d-sm-none d-md-block"></div><?php }
+			if(0 == ($woocommerce_loop['loop'] % 4)){?><div class="clearfix d-none d-sm-block d-md-none"></div><?php }
+			if(0 == ($woocommerce_loop['loop'] % 2)){?><div class="clearfix d-block d-sm-none"></div><?php }
+		}
+		
+		elseif($woocommerce_loop['columns'] == 4){ 
+				
+			if(0 == ($woocommerce_loop['loop'] % 4)){?><div class="clearfix d-sm-none d-md-block"></div><?php }
+			if(0 == ($woocommerce_loop['loop'] % 2)){?><div class="clearfix clearfix d-none d-sm-block d-md-none"></div><?php }
+		}
+		elseif($woocommerce_loop['columns'] == 3){ 
+				
+			if(0 == ($woocommerce_loop['loop'] % 3)){?><div class="d-sm-none d-md-block"></div><?php }
+		
+		}
+		elseif($woocommerce_loop['columns'] == 31){ 
+				
+			if(0 == ($woocommerce_loop['loop'] % 3)){?><div class="clearfix d-sm-none d-md-block"></div><?php }
+			if(0 == ($woocommerce_loop['loop'] % 2)){?><div class="clearfix d-none d-sm-block d-md-none"></div><?php }
+		}
+		
+		elseif($woocommerce_loop['columns'] == 2){ 
+				
+			if(0 == ($woocommerce_loop['loop'] % 2)){?><div class="clearfix .d-none .d-sm-block"></div><?php }
+		
+			
+		}
+			    
+	
+	}
 
 
 	if(get_option( 'tbversion', 3 )==3){ // only for version 3+
@@ -553,9 +569,9 @@ if($woocommerce_loop['columns']!=31 && ( $woocommerce_loop['columns']>6 || in_ar
 function woocommerce_before_single_product_summary_bs() 
 { 
 	
-	if(get_option( 'tbversion', 3 )==2)
+	if(get_option( 'tbversion', 3 )==4)
 	{
-		$bssingleproductclass = 'span6';
+		$bssingleproductclass = 'col-sm-6';
 	}
 	else
 	{
