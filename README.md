@@ -110,6 +110,10 @@ Please add an issues in the issue tracker
 Changelog
 ---------
 
+2.1
+
+* Only load CSS if the page is a woocomerce page
+
 2.0
 
 * Forked from https://github.com/bassjobsen/woocommerce-twitterbootstrap
